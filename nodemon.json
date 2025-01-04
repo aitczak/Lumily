@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "server"],
+  "ext": "ts,tsx,js,jsx",
+  "ignore": ["node_modules"],
+  "exec": "npx tsx"
+}
