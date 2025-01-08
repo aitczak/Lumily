@@ -1,19 +1,19 @@
 import {useState } from "react";
-import Places from "./Places"
-import { PlacesListProps, PlacesProps } from "../types";
+import Exercises from "./Exercises"
+import { ExerciseListProps, ExerciseProps } from "../types";
 
-const Cities: React.FC = () => {
+const Dashboard: React.FC = () => {
     //managing state and API calls? define state here top level dashboard 
-    //input box for city or country you want to travel to -- API call?
+    //input box for exercise-- API call?
     //displays categories of activites , What to do, where to stay, where to eat , how to get around 
 
     const [destination, setDestination] = useState('')
-    const [activityList, setActivityList] =useState<PlacesProps[]>([{id: '1', name: 'Maui'}])
+    const [activityList, setActivityList] =useState<ExerciseProps[]>([{id: '1', name: 'Squats'}])
 
     const handleDestinationSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     //api call
-    const response = await fetch('/api/locations');
+    const response = await fetch('/api/exercises');
     const data = await response.json();
     setActivityList(data);
     setDestination('')
@@ -23,13 +23,13 @@ const Cities: React.FC = () => {
     return(
         <div>
            <form onSubmit={handleDestinationSubmit}>
-            <input value={destination} type= 'text' placeholder="Where are you traveling?" onChange={(e)=> setDestination(e.target.value)}></input>
+            <input value={destination} type= 'text' placeholder="Enter exercise here" onChange={(e)=> setDestination(e.target.value)}></input>
            <button type='submit'>Search</button>
            </form>
-           <Places places ={activityList}/>
+           <Exercises exercise ={activityList}/>
         </div>
     )
 }
 
-export default Cities;
+export default Dashboard;
 

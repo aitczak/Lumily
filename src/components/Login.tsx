@@ -24,7 +24,7 @@ const Login = () => {
         const data = await response.json();
         console.log(data)
         if (data.ok){
-          navigate('/list')
+          navigate('/dash')
         }
       
        
@@ -38,6 +38,7 @@ const Login = () => {
     return (
     <>
     <div>
+      <h1 >Hello World</h1>
       <form id='loginformcontainer'
       onSubmit={(event)=> handleLogin(event, Email, PassWord)}>
       <input value={Email} type='text' placeholder='Enter Email' required onChange={(e)=> setEmail(e.target.value)}></input>
