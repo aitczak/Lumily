@@ -3,16 +3,37 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import Profile from "./components/Profile";
-
+import NavBar from  "./components/NavBar"
+import Landing from "./components/Landing"
+import Practice from "./components/Practice"
 
 const App = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/dash" element={<Dashboard />} />
+        <Route path='/nav' element={<NavBar/>}/>
+        <Route path='/practice' element={<Practice/>}/>
+        <Route
+          path="/profile"
+          element={
+            <>
+              <Profile />
+              <NavBar />
+            </>
+          }
+        />
+        <Route
+          path="/dash"
+          element={
+            <>
+              <Dashboard />
+              <NavBar/>
+            </>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
