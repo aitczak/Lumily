@@ -14,14 +14,14 @@ const App = (): JSX.Element => {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path='/nav' element={<NavBar/>}/>
-        <Route path='/practice' element={<Practice/>}/>
+        <Route path="/nav" element={<NavBar />} />
+        <Route path="/practice" element={<Practice />} />
         <Route
           path="/profile"
           element={
             <>
-              <Profile />
               <NavBar />
+              <Profile />
             </>
           }
         />
@@ -29,8 +29,8 @@ const App = (): JSX.Element => {
           path="/dash"
           element={
             <>
+              <NavBar />
               <Dashboard />
-              <NavBar/>
             </>
           }
         />
