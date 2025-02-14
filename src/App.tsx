@@ -6,6 +6,8 @@ import Profile from "./components/Profile";
 import NavBar from  "./components/NavBar"
 import Landing from "./components/Landing"
 import Practice from "./components/Practice"
+import Exercises from "./components/Exercises";
+
 
 const App = (): JSX.Element => {
   return (
@@ -16,6 +18,7 @@ const App = (): JSX.Element => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/nav" element={<NavBar />} />
         <Route path="/practice" element={<Practice />} />
+        <Route path="/exercises" element={<Exercises exercise={[{id: 'dasfdagea', name: 'dad'}]} />} />
         <Route
           path="/profile"
           element={
