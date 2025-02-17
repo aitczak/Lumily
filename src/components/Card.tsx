@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import {CardProps} from '../types'
 
 
-
+//this is top level,, holds children components
 
 const Card = ({children}: PropsWithChildren<CardProps>) => {
 

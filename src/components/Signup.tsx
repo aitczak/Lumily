@@ -31,7 +31,7 @@ const Signup = (): JSX.Element => {
       });
 
       if (response.ok) {
-        navigate("/");
+        navigate("/dash");
       }
     } catch (error) {
       console.log("error in signup form");
@@ -72,7 +72,7 @@ const Signup = (): JSX.Element => {
         ></input>
         <button type="submit">Sign Up</button>
       </form>
-      <button onClick={(e) => navigate("/")}>
+      <button onClick={(e) => navigate("/login")}>
         Have an existing account? Log in here!
       </button>
     </div>

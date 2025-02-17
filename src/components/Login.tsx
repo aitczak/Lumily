@@ -24,7 +24,7 @@ const Login = () => {
         const data = await response.json();
         console.log(data)
         if (data.ok){
-          navigate('/list')
+          navigate('/dash')
         }
       
        
@@ -36,18 +36,47 @@ const Login = () => {
     }
    
     return (
-    <>
-    <div>
-      <form id='loginformcontainer'
-      onSubmit={(event)=> handleLogin(event, Email, PassWord)}>
-      <input value={Email} type='text' placeholder='Enter Email' required onChange={(e)=> setEmail(e.target.value)}></input>
-      <input value={PassWord} type='password' placeholder="Enter Password" required onChange={(e)=> setPassWord(e.target.value)}></input>
-      <button type='submit'> Login </button>
-      </form>
-      </div>
-  <button onClick={(e)=> navigate('/signup')}>Need an Account? Sign Up Here!</button>
-    </>
-    )
+      <>
+        <div>
+
+          <div>
+            <form
+              id="loginformcontainer"
+              className="mt-4"
+              onSubmit={(event) => handleLogin(event, Email, PassWord)}
+            >
+              <input
+                value={Email}
+                className=" w-full mb-2 px-4 py-2 border rounded"
+                type="text"
+                placeholder="Enter Email"
+                required
+                onChange={(e) => setEmail(e.target.value)}
+              ></input>
+              <input
+                value={PassWord}
+                className=" w-full mb-4 px-4 py-2 border rounded"
+                type="password"
+                placeholder="Enter Password"
+                required
+                onChange={(e) => setPassWord(e.target.value)}
+              ></input>
+              <button
+                className="mt-4 text-darkblue hover:underline"
+                type="submit"
+              >
+                {" "}
+                Login{" "}
+              </button>
+            </form>
+
+            <button onClick={(e) => navigate("/signup")}>
+              Need an Account? Sign Up Here
+            </button>
+          </div>
+        </div>
+      </>
+    );
 }
 
 export default Login

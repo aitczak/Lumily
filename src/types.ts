@@ -1,11 +1,11 @@
-export type PlacesProps = {
+export type ExerciseProps = {
     id: string,
     name: string
 }
 
 
-export type PlacesListProps = {
-    places: PlacesProps[]
+export type ExerciseListProps = {
+    exercise: ExerciseProps[]
 }
 
 

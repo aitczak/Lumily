@@ -1,4 +1,4 @@
-import express, {NextFunction, Request, Response, ErrorRequestHandler,} from 'express';
+import express, {NextFunction, Request, Response, ErrorRequestHandler} from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -23,8 +23,8 @@ res.sendStatus(200)
 
 })
 
-app.get('/api/locations', (req: Request,res: Response) =>{
-res.status(200).json([{'id': 2, 'name': 'Atlanta'}])
+app.get('/api/exercises', (req: Request,res: Response) =>{
+res.status(200).json([{'id': 2, 'name': 'Deadlift'}])
 }  )
 
 app.use("*", (req, res) => {
