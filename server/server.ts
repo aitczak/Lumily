@@ -1,6 +1,8 @@
 import express, {NextFunction, Request, Response, ErrorRequestHandler} from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import {initDB} from './db'
+import {addUser} from './controllers/dbcontroller.js'
 
 
 
@@ -17,7 +19,7 @@ app.post('/api/login', (req: Request, res: Response)=>{
     res.status(200).json({ok: true, message: 'Login Successful'})
 })
 
-app.post('/api/signup', (req: Request, res: Response)=>{
+app.post('/api/signup', addUser, (req: Request, res: Response)=>{
 console.log('in backend signup')
 res.sendStatus(200)
 
