@@ -1,6 +1,7 @@
 import express, {NextFunction, Request, Response, ErrorRequestHandler} from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import {initDB} from './db'
 import {addUser} from './controllers/dbcontroller.js'
 
@@ -11,6 +12,7 @@ dotenv.config()
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(bodyParser.json());
 const PORT: number = 3023
 
 
@@ -25,7 +27,7 @@ res.sendStatus(200)
 
 })
 
-app.get('/api/exercises', (req: Request,res: Response) =>{
+app.get('/api/exercises:', (req: Request,res: Response) =>{
 res.status(200).json([{'id': 2, 'name': 'Deadlift'}])
 }  )
 

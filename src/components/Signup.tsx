@@ -17,7 +17,7 @@ const Signup = (): JSX.Element => {
     LastName: string
   ): Promise<void> => {
     event.preventDefault();
-
+    console.log(Email, PassWord, FirstName, LastName)
     try {
       const response = await fetch("/api/signup", {
         method: "POST",
@@ -66,7 +66,7 @@ const Signup = (): JSX.Element => {
         ></input>
         <input
           value={PassWord}
-          type="text"
+          type="password"
           placeholder="Enter Password"
           onChange={(e) => setPassWord(e.target.value)}
         ></input>
