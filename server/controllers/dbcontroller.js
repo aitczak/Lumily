@@ -4,23 +4,25 @@ import {client} from '../db.js'
 
 
 
-export const addUser = async (res, req, next) => {
+export const addUser = async (req, res, next) => {
 const {FirstName, LastName, email, password} = req.body
+console.log(req.body)
 
 try {
   const newuser = await client.query (
-    `INSERT INTO user(firstname, lastname, email, password)
+    `INSERT INTO users(email, firstname, lastname, password)
     VALUES($1, $2, $3, $4)
-    RETURNING *`
+    RETURNING *`,
+    [email, FirstName, LastName, password]
   )
-  console.log("new user added", result.rows[0]);
+  console.log("new user added", newuser.rows[0]);
   res.locals.newuser = newuser
+  return next()
 }
 catch (error){
-  console.log('error querying DB for User Details')
+  console.log('error querying DB for User Details', error)
 }
 
 };
 
 
-//make sure this works
