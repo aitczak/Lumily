@@ -26,3 +26,23 @@ catch (error){
 };
 
 
+export const getUserExerciseList = async (req, res,next)=>{
+  const {id} = req.params
+
+  const text = `SELECT * FROM exercises WHERE id = $1 `
+  const params = [id]
+  //need to make exercise table, join with user /foreign key
+  try {
+    const resultList = await client.query(text, params);
+    if (resultList) {
+      res.locals.exerciseList = resultList.rows[0]
+      return next();
+    } else console.log('user exercise list not found', error)
+  } 
+  catch(error)
+   {
+    return next({
+      log: `${error} occurred while searching for user exercise list in database`,
+    })
+};
+}

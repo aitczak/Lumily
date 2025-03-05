@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import {initDB} from './db'
-import {addUser} from './controllers/dbcontroller.js'
+import {addUser, getUserExerciseList} from './controllers/dbcontroller.js'
 
 
 
@@ -22,10 +22,16 @@ app.post('/api/login', (req: Request, res: Response)=>{
 })
 
 app.post('/api/signup', addUser, (req: Request, res: Response)=>{
-console.log('in backend signup')
 res.sendStatus(200)
 
 })
+
+app.get('/api/exerciseList/:id', getUserExerciseList, (req: Request, res: Response)=>{
+console.log('in server get exercise list');
+res.status(200).json(res.locals.UserExerciseList)
+})
+//make sure this works
+
 
 app.get('/api/exercises:', (req: Request,res: Response) =>{
 res.status(200).json([{'id': 2, 'name': 'Deadlift'}])
