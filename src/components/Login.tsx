@@ -1,6 +1,9 @@
 
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import { useNavigate } from "react-router";
+
+
+import {LoginContext} from "../context/LoginContext";
 
 
 
@@ -8,8 +11,10 @@ import { useNavigate } from "react-router";
 const Login = () => {
   const navigate = useNavigate();
 
-    const[ Email, setEmail] = useState('');
-    const [PassWord, setPassWord] = useState('');
+ const{Email, setEmail} =useContext(LoginContext)
+ const {PassWord, setPassWord} = useContext(LoginContext)
+    // const[ Email, setEmail] = useState('');
+    // const [PassWord, setPassWord] = useState('');
 
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>, Email: string, PassWord: string): Promise<void> => {
         event.preventDefault();

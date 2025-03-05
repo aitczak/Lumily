@@ -31,29 +31,60 @@ const createUserTable = async () => {
     console.error("Error creating schema:", err);
   }
 };
-const updateUserTable = async () => {
-  try {
-    // Add new columns
-    await client.query(`
-      ALTER TABLE users
-      ADD COLUMN firstname STRING UNIQUE NOT NULL,
-      ADD COLUMN lastname STRING UNIQUE NOT NULL,
-      ADD COLUMN password STRING UNIQUE NOT NULL;
-    `);
-    console.log(
-      "Added firstname, lastname, and password columns to users table."
-    );
+// const createExerciseTable = async ()=>{
+//   try {
+//     await client.query(`
+//       CREATE TABLE IF NOT EXISTS exercise(
+//       id UUID PRIMARY KEY DEFAULT gen_random_uuid()
+//       name STRING UNIQUE NOT NULL
+//       description STRING
+//       musclegroup STRING
+      
+//       )`)
+//   }
+//   catch(error){
+//     console.log("error creating schema, exercise table", error)
+//   }
+// }
 
-    // Drop the old username column
-    await client.query(`
-      ALTER TABLE users
-      DROP COLUMN username;
-    `);
-    console.log("Dropped the 'username' column from users table.");
-  } catch (err) {
-    console.error("Error updating users table:", err);
-  }
-};
+// const createUserExerciseJoin = async () =>{
+//  try{
+//   await client.query(
+//   `CREATE TABLE user_exercises (
+//     user_id UUID NOT NULL,
+//     exercise_id UUID NOT NULL,
+//     reps INT,
+//     weight FLOAT,
+//     notes STRING`)
+//  }
+//  catch(error){
+//   console.log(error)
+//  }
+// }
+
+// const updateUserTable = async () => {
+//   try {
+//     // Add new columns
+//     await client.query(`
+//       ALTER TABLE users
+//       ADD COLUMN firstname STRING UNIQUE NOT NULL,
+//       ADD COLUMN lastname STRING UNIQUE NOT NULL,
+//       ADD COLUMN password STRING UNIQUE NOT NULL;
+//     `);
+//     console.log(
+//       "Added firstname, lastname, and password columns to users table."
+//     );
+
+//     // Drop the old username column
+//     await client.query(`
+//       ALTER TABLE users
+//       DROP COLUMN username;
+//     `);
+//     console.log("Dropped the 'username' column from users table.");
+//   } catch (err) {
+//     console.error("Error updating users table:", err);
+//   }
+// };
 
 
 const initDB = async () => {

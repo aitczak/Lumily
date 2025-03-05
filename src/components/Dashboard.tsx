@@ -22,23 +22,23 @@ const Dashboard: React.FC = () => {
     }
 
     const handleViewExClick = ()=>{
-        //fetch to API to get exerciseList using username/ID? 
-        //set up contextAPI to hold user state
-        try {
-            fetch('/api/exerciseList/:id',
-                {
+    //     //fetch to API to get exerciseList using username/ID? 
+    //     //set up contextAPI to hold user state
+    //     try {
+    //         fetch('/api/exerciseList/:id',
+    //             {
 
-                }
-            )
-            if (result.ok){
+    //             }
+    //         )
+    //         if (result.ok){
              navigate('/exercises', {state: {exerciseList} })
-            }
-        }
-        catch(
+    //         }
+    //     }
+    //     catch(
 
-        )
+    //     )
       
-     
+     //make context API to hold user id
     }
 
     return(
