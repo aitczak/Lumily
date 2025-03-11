@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import {initDB} from './db'
-import {addUser, getUserExerciseList} from './controllers/dbcontroller.js'
+import {addUser, getUserExerciseList, verifyUser} from './controllers/dbcontroller.js'
 
 
 
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 const PORT: number = 3023
 
 
-app.post('/api/login', (req: Request, res: Response)=>{
+app.post('/api/login', verifyUser, (req: Request, res: Response)=>{
   console.log('in backend login ')
     res.status(200).json({ok: true, message: 'Login Successful'})
 })

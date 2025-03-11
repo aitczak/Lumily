@@ -25,6 +25,10 @@ catch (error){
 
 };
 
+export const verifyUser = async (req, res, next)=>{
+  // add logic here
+}
+
 
 export const getUserExerciseList = async (req, res,next)=>{
   const {id} = req.params

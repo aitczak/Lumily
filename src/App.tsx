@@ -8,7 +8,7 @@ import NavBar from  "./components/NavBar"
 import Landing from "./components/Landing"
 import Practice from "./components/Practice"
 import Exercises from "./components/Exercises";
-import {LoginContext} from "./context/LoginContext.js"
+import {LoginContext} from "./context/LoginContext"
 
 const App = (): JSX.Element => {
  const [Email, setEmail] = useState("");

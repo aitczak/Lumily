@@ -11,10 +11,16 @@ import {LoginContext} from "../context/LoginContext";
 const Login = () => {
   const navigate = useNavigate();
 
- const{Email, setEmail} =useContext(LoginContext)
- const {PassWord, setPassWord} = useContext(LoginContext)
+const loginContext = useContext(LoginContext)
     // const[ Email, setEmail] = useState('');
     // const [PassWord, setPassWord] = useState('');
+  if (!loginContext) {
+    return <div>Loading...</div>;
+  }
+
+  const { Email, setEmail, PassWord, setPassWord } = loginContext;
+
+
 
     const handleLogin = async (event: React.FormEvent<HTMLFormElement>, Email: string, PassWord: string): Promise<void> => {
         event.preventDefault();
