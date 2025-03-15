@@ -1,3 +1,4 @@
+import { query } from 'express';
 import {client} from '../db.js'
 
 
@@ -26,7 +27,23 @@ catch (error){
 };
 
 export const verifyUser = async (req, res, next)=>{
-  // add logic here
+  // add logic here // and test if works
+  const {email, password} = req.body;
+
+  const text = `SELECT id FROM users WHERE email = $1 AND password = $2`
+  const params = [email, password];
+
+  try {
+    const verified = await client.query(text, params);
+ if (result.rows.length === 0) {
+   return res.status(401).json({ error: "Invalid email or password" });
+ } else {
+  res.locals.verifiedID = verified.rows[0]
+ }
+  }
+  catch(error){
+    console.log(error, 'err in verify user fromDB')
+  }
 }
 
 
